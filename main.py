@@ -59,3 +59,5 @@ def epic():
         with open(f"./images/earth_{image_number}.png", 'wb') as file:
             file.write(response.content)
 
+
+epic()
