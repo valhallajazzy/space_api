@@ -60,4 +60,4 @@ images нет, то она автоматический создается в к
 
 ![Screenshot](https://github.com/valhallajazzy/space_api/blob/main/pic_for_README/bot.png)
 
-Подробнее о создании Telegram-канала и предоставлении боту прав админа можно почитать [ЗДЕСЬ](https://smmplanner.com/blog/otlozhennyj-posting-v-telegram/)
+Подробнее о создании Telegram-канала и предоставлении боту прав администратора можно почитать [ЗДЕСЬ](https://smmplanner.com/blog/otlozhennyj-posting-v-telegram/)
