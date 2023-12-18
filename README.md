@@ -6,7 +6,7 @@
 
 ## Подготовка к запуску скрипта
 
-В терминале, в корневой папке проекта создаем вирутальное окружение и устанавливаем
+В терминале, в корневой папке проекта создаем виртуальное окружение и устанавливаем
 требуемые библиотеки, запускаем виртуальное окружение:
 
 ```console
@@ -21,6 +21,8 @@ NASA_TOKEN - токен полученный на сайте [API.NASA](https://
 TELEGRAM_TOKEN - токен полученный в [Telegram-bot Father](https://telegram.me/BotFather) для отправки фотографий на ваш канал
 в Telegram при помощи бота. Подробнее о регистрации бота и получении токена можно прочитать [ЗДЕСЬ](https://way23.ru/%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D1%8F-%D0%B1%D0%BE%D1%82%D0%B0-%D0%B2-telegram.html)
 
+TELEGRAM_CHAT_ID - указывает название Telegram-канала, в который будут публиковаться фотографии. Например: `TELEGRAM_CHAT_ID='@example_channel'`
+
 ![Screenshot](https://github.com/valhallajazzy/space_api/blob/main/pic_for_README/env.png)
 ![Screenshot](https://github.com/valhallajazzy/space_api/blob/main/pic_for_README/variables.png)
 
@@ -29,12 +31,12 @@ TELEGRAM_TOKEN - токен полученный в [Telegram-bot Father](https:
 Данный скрипт загружает фотографии запуска ракет от компании SpaceX в директорию images. Если директории images нет, 
 то она автоматический создается в корневой директории проекта. Дополнительными параметрами запуска скрипта можется являться
 ID (идентификатор определенного запуска ракеты), для получения фото именно с него. Запуская скрипт без дополнительных параметров - будут 
-загружаться фотографии с поледнего запуска ракет. Перед параметром нужно указать префикс "-l", "--launch". 
+загружаться фотографии с последнего запуска ракет. Перед параметром нужно указать префикс "-l", "--launch". 
 Примеры запуска без параметра и с ним показаны ниже.
 
 ![Screenshot](https://github.com/valhallajazzy/space_api/blob/main/pic_for_README/spacex.png)
 
-## Скрипт nasa_apod_images.py
+## Скрипт get_nasa_apod_images.py
 
 Данный скрипт загружает фотографии Astronomy Picture of the Day (APOD (NASA)) в директорию images. Если директории 
 images нет, то она автоматический создается в корневой директории проекта. Дополнительными параметрами запуска скрипта можется являться
@@ -43,14 +45,14 @@ images нет, то она автоматический создается в к
 
 ![Screenshot](https://github.com/valhallajazzy/space_api/blob/main/pic_for_README/apod.png)
 
-## Скрипт nasa_epic_images.py
+## Скрипт get_nasa_epic_images.py
 
 Данный скрипт загружает фотографии EPIC: Earth Polychromatic Imaging Camera (NASA) в директорию images. Если директории 
 images нет, то она автоматический создается в корневой директории проекта. Пример запуска скрипта показан ниже.
 
 ![Screenshot](https://github.com/valhallajazzy/space_api/blob/main/pic_for_README/epic.png)
 
-## Скрипт space_bot.py
+## Скрипт send_images_bot.py
 
 Данный скрипт загружает фотографии на ваш Telegram-канал. Дополнительными параметрами запуска скрипта можется являться
 путь к определенной фотографий, которую вы хотите загрузить. Перед параметром нужно указать префикс "-p", "--path".
