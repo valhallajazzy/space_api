@@ -8,7 +8,7 @@ from telegram import InputMediaPhoto
 from dotenv import load_dotenv
 
 
-def create_image(image_link, image_number, word_prefix, params=None):
+def download_image(image_link, image_number, word_prefix, params=None):
     response = requests.get(image_link, params=params)
     response.raise_for_status()
     url_path = unquote(urlsplit(image_link).path)
@@ -18,7 +18,7 @@ def create_image(image_link, image_number, word_prefix, params=None):
         file.write(response.content)
 
 
-def send_photo(bot, image_path):
-    load_dotenv()
+def send_photo(bot, image_path, telegram_chat_id):
     with open(image_path, 'rb') as im:
-        bot.send_media_group(chat_id=os.environ['TELEGRAM_CHAT_ID'], media=[InputMediaPhoto(im)])
+        bot.send_media_group(chat_id=telegram_chat_id, media=[InputMediaPhoto(im)])
+

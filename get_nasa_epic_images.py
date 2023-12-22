@@ -1,7 +1,7 @@
 import os
 from datetime import datetime
 from pathlib import Path
-from utils import create_image
+from utils import download_image
 
 import requests
 from dotenv import load_dotenv
@@ -21,7 +21,7 @@ def get_nasa_epic_images(token):
         image_name = data["image"]
         payload = {"api_key": token}
         url = f'https://api.nasa.gov/EPIC/archive/natural/{image_time.year}/{image_time.month}/{image_time.day}/png/{image_name}.png'
-        create_image(url, image_number, 'earth', payload)
+        download_image(url, image_number, 'earth', payload)
 
 
 def main():

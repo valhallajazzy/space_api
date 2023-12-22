@@ -1,7 +1,7 @@
 from pathlib import Path
 import os
 import argparse
-from utils import create_image
+from utils import download_image
 
 import requests
 from dotenv import load_dotenv
@@ -17,12 +17,13 @@ def get_nasa_apod_images(token, images_count):
                }
     response = requests.get(url, params=payload)
     response.raise_for_status()
-    images = response.json()
+    media = response.json()
 
-    for image_number, data in enumerate(images):
-        image_link = data["url"]
-        payload = {"api_key": token}
-        create_image(image_link, image_number, 'nasa_apod', payload)
+    for image_number, data in enumerate(media):
+        if data['media_type'] == 'image':
+            image_link = data["url"]
+            payload = {"api_key": token}
+            download_image(image_link, image_number, 'nasa_apod', payload)
 
 
 def main():
@@ -30,7 +31,7 @@ def main():
     token = os.environ["NASA_TOKEN"]
     parser = argparse.ArgumentParser()
     parser.add_argument("-c", "--count", help='Введите требуемое количество фотографий', type=int,
-                        default = 20)
+                        default=20)
     args = parser.parse_args()
     get_nasa_apod_images(token, args.count)
 

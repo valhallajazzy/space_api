@@ -1,6 +1,6 @@
 from pathlib import Path
 import argparse
-from utils import create_image
+from utils import download_image
 
 import requests
 
@@ -14,7 +14,7 @@ def fetch_spacex_last_launch(launch_id):
     images = response.json()["links"]["flickr"]["original"]
 
     for link_number, link in enumerate(images):
-        create_image(link, link_number, 'spacex')
+        download_image(link, link_number, 'spacex')
 
 
 def main():
