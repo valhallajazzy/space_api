@@ -7,9 +7,8 @@ import requests
 from dotenv import load_dotenv
 
 
-def get_nasa_epic_images(token):
-    outpath = Path.cwd() / 'images'
-    outpath.mkdir(parents=True, exist_ok=True)
+def get_nasa_epic_images(token, path_to_folder_with_images):
+    path_to_folder_with_images.mkdir(parents=True, exist_ok=True)
     url = 'https://api.nasa.gov/EPIC/api/natural/images'
     payload = {"api_key": token}
     response = requests.get(url, params=payload)
@@ -21,13 +20,14 @@ def get_nasa_epic_images(token):
         image_name = data["image"]
         payload = {"api_key": token}
         url = f'https://api.nasa.gov/EPIC/archive/natural/{image_time.year}/{image_time.month}/{image_time.day}/png/{image_name}.png'
-        download_image(url, image_number, 'earth', payload)
+        download_image(url, image_number, 'earth', path_to_folder_with_images, payload)
 
 
 def main():
+    path_to_folder_with_images=os.getenv("PATH_TO_FOLDER", default=Path.cwd() / 'images')
     load_dotenv()
     token = os.environ["NASA_TOKEN"]
-    get_nasa_epic_images(token)
+    get_nasa_epic_images(token, path_to_folder_with_images)
 
 
 if __name__ == '__main__':
