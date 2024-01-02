@@ -18,4 +18,3 @@ def download_image(image_link, image_number, word_prefix, path_to_folder_with_im
 def send_photo(bot, image_path, telegram_chat_id):
     with open(image_path, 'rb') as im:
         bot.send_media_group(chat_id=telegram_chat_id, media=[InputMediaPhoto(im)])
-

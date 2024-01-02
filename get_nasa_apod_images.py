@@ -26,7 +26,7 @@ def get_nasa_apod_images(token, images_count, path_to_folder_with_images):
 
 
 def main():
-    path_to_folder_with_images=os.getenv("PATH_TO_FOLDER", default=Path.cwd() / 'images')
+    path_to_folder_with_images = os.getenv("PATH_TO_FOLDER", default=Path.cwd() / 'images')
     load_dotenv()
     token = os.environ["NASA_TOKEN"]
     parser = argparse.ArgumentParser()

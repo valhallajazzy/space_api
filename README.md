@@ -15,13 +15,13 @@ $ poetry shell
 ```
 Так же требуется создать в корневой директории проекта файл .env, обозначить в нем переменные окружения:
 
-NASA_TOKEN - токен полученный на сайте [API.NASA](https://api.nasa.gov/) для загрузки фотографий из этого источника. 
+`NASA_TOKEN` - токен полученный на сайте [API.NASA](https://api.nasa.gov/) для загрузки фотографий из этого источника. 
 Потребуется для пользования скриптами nasa_apod_images.py и nasa_epic_images.py
 
-TELEGRAM_TOKEN - токен полученный в [Telegram-bot Father](https://telegram.me/BotFather) для отправки фотографий на ваш канал
+`TELEGRAM_TOKEN` - токен полученный в [Telegram-bot Father](https://telegram.me/BotFather) для отправки фотографий на ваш канал
 в Telegram при помощи бота. Подробнее о регистрации бота и получении токена можно прочитать [ЗДЕСЬ](https://way23.ru/%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D1%8F-%D0%B1%D0%BE%D1%82%D0%B0-%D0%B2-telegram.html)
 
-TELEGRAM_CHAT_ID - указывает название Telegram-канала, в который будут публиковаться фотографии. Например: `TELEGRAM_CHAT_ID='@example_channel'`
+`TELEGRAM_CHAT_ID` - указывает название Telegram-канала, в который будут публиковаться фотографии. Например: `TELEGRAM_CHAT_ID='@example_channel'`
 
 ![Screenshot](https://github.com/valhallajazzy/space_api/blob/main/pic_for_README/env.png)
 ![Screenshot](https://github.com/valhallajazzy/space_api/blob/main/pic_for_README/variables.png)
@@ -60,10 +60,10 @@ images нет, то она автоматический создается в к
 интервалом во времени (по умолчанию 4 часа).
 
 * Если вы хотите изменить интервал времени, то нужно указать в файле .env 
-переменную окружения TIME_INTERVAL (время указывается в секундах). 
+переменную окружения `TIME_INTERVAL` (время указывается в секундах). 
 
 * Если вы хотите изменить конфигурационный путь папки из которой будут загружаться фотографии в бесконечном цикле 
-(по умолчанию './images' в корневой директории проекта'), то укажите в файле .env переменную окружения PATH_TO_FOLDER 
+(по умолчанию './images' в корневой директории проекта'), то укажите в файле .env переменную окружения `PATH_TO_FOLDER` 
 в которой будет указан новый путь к папке с картинками. 
 
 Примеры запуска без параметра и с ним показаны ниже.

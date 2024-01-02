@@ -21,10 +21,10 @@ def send_photo_to_channel(token, telegram_chat_id, time_interval, image_path, co
                 telegram.Bot(token=token)
                 random.shuffle(images)
                 for image in images:
-                    send_photo(bot, Path(config_path) / f'{image}', telegram_chat_id)
+                    send_photo(bot, Path(config_path) / image, telegram_chat_id)
                     sleep(int(time_interval))
-            except NetworkError as e:
-                telegram.Bot(token=token)
+            except NetworkError:
+                print('Ошибка интернет-соединения, переподключаюсь')
                 sleep(10)
 
 
@@ -33,7 +33,7 @@ def main():
     token = os.environ["TELEGRAM_TOKEN"]
     telegram_chat_id = os.environ['TELEGRAM_CHAT_ID']
     time_interval = os.getenv("TIME_INTERVAL", default=14400)
-    path_to_folder_with_images=os.getenv("PATH_TO_FOLDER", default=Path.cwd() / 'images')
+    path_to_folder_with_images = os.getenv("PATH_TO_FOLDER", default=Path.cwd() / 'images')
     parser = argparse.ArgumentParser()
     parser.add_argument("-p", "--path", help='Введите путь до картинки, которую хотите отправить',
                         default=None)
